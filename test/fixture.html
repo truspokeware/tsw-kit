@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>tsw-kit smoke test</title>
+<link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="components.css">
+</head>
+<body>
+<a class="tsw-skip-link" href="#main">Skip to content</a>
+
+<tsw-nav>
+  <a slot="brand" href="#top">TruSpokeWare</a>
+  <ul slot="links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#start">Start</a></li>
+  </ul>
+  <div slot="actions">
+    <tsw-button href="#start" data-variant="primary">Get started</tsw-button>
+  </div>
+  <button slot="toggle" aria-label="Menu">
+    <tsw-icon name="menu-2" data-when="closed"></tsw-icon>
+    <tsw-icon name="x" data-when="open"></tsw-icon>
+  </button>
+  <div slot="panel">
+    <a href="#work">Work</a>
+    <a href="#pricing">Pricing</a>
+    <tsw-button href="#start">Get started</tsw-button>
+  </div>
+</tsw-nav>
+
+<main id="main">
+  <tsw-hero id="top">
+    <p slot="eyebrow" class="tsw-eyebrow">Home services</p>
+    <h1 slot="heading">Websites that get you calls.</h1>
+    <p slot="body">Bespoke marketing sites for plumbers, HVAC, and electricians in Central Florida.</p>
+    <div slot="actions">
+      <tsw-button href="#start" data-variant="primary" data-size="lg">Start your site</tsw-button>
+      <tsw-button href="#work" data-variant="secondary">See an example</tsw-button>
+    </div>
+  </tsw-hero>
+
+  <tsw-section id="work">
+    <p slot="eyebrow" class="tsw-eyebrow">Niche</p>
+    <h2 slot="heading">Built for one industry first.</h2>
+    <div slot="body"><p>Deep templates beat generic ones.</p></div>
+    <div slot="actions"><tsw-button href="#pricing" data-variant="ghost">Pricing</tsw-button></div>
+  </tsw-section>
+
+  <tsw-section id="pricing" data-tone="sunken">
+    <h2 slot="heading">Pricing</h2>
+    <div slot="body"><p>Structure now, numbers later.</p></div>
+  </tsw-section>
+
+  <tsw-section id="start" data-width="narrow">
+    <h2 slot="heading">Start</h2>
+    <form is="tsw-form" endpoint="/api/intake" action="/api/intake" method="post" data-fallback-email="start@truspokeware.com">
+      <fieldset>
+        <legend>Do you have a website today?</legend>
+        <label class="tsw-choice">
+          <input type="radio" name="has_website" value="yes" required>
+          <span><span class="tsw-choice__title">Yes</span><span class="tsw-choice__desc">We will review it</span></span>
+        </label>
+        <label class="tsw-choice">
+          <input type="radio" name="has_website" value="no">
+          <span><span class="tsw-choice__title">No</span><span class="tsw-choice__desc">Start from scratch</span></span>
+        </label>
+      </fieldset>
+
+      <fieldset data-tsw-branch="has_website" data-tsw-branch-values="yes" hidden>
+        <div class="tsw-field">
+          <label for="site">Your website address</label>
+          <input id="site" name="current_site" type="url" placeholder="https://example.com" required>
+        </div>
+      </fieldset>
+
+      <div class="tsw-field">
+        <label for="biz">Business name</label>
+        <input id="biz" name="business_name" type="text" required>
+      </div>
+
+      <div class="tsw-honeypot" aria-hidden="true">
+        <label for="website">Leave this field empty</label>
+        <input id="website" name="tsw_website_url" type="text" tabindex="-1" autocomplete="off">
+      </div>
+
+      <input type="hidden" name="tsw_started_at" value="">
+      <tsw-button type="submit">Send it</tsw-button>
+    </form>
+  </tsw-section>
+
+  <tsw-cta data-variant="accent">
+    <h2 slot="heading">Ready?</h2>
+    <p slot="body">Two minutes, no obligation.</p>
+    <tsw-button href="#start" data-variant="primary">Start</tsw-button>
+  </tsw-cta>
+
+  <tsw-disclosure>
+    <summary>What does it cost? <tsw-icon name="chevron-down" size="sm"></tsw-icon></summary>
+    <p>Pricing lands in a later phase.</p>
+  </tsw-disclosure>
+</main>
+
+<tsw-footer>
+  <a slot="brand" href="#top">TruSpokeWare</a>
+  <div slot="cols">
+    <div slot="col"><h2>Site</h2><ul><li><a href="#work">Work</a></li></ul></div>
+  </div>
+  <div slot="legal"><span>© <span data-tsw-year></span> TruSpokeWare</span></div>
+</tsw-footer>
+
+<script type="module" src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+# Icons vendored from @tabler/icons (MIT), 24x24 stroke grid, outline set.
+# Grouped by purpose so the curated list stays reviewable.
+
+# navigation and actions
+arrow-right
+arrow-up-right
+arrow-left
+chevron-down
+chevron-right
+menu-2
+x
+search
+external-link
+refresh
+send
+upload
+
+# conversion and trust
+check
+circle-check
+alert-triangle
+info-circle
+star
+quote
+shield-check
+award
+clock
+calendar
+phone
+phone-call
+mail
+map-pin
+message
+
+# services and content
+briefcase
+users
+user
+target
+bolt
+droplet
+flame
+palette
+code
+terminal
+device-mobile
+trending-up
+bulb
+file-text
+list
+heart
+contract
+rocket
+wand
+
+# commerce
+credit-card
+receipt
+building-store
+home
+package
+truck
+
+# platforms
+brand-github
+brand-linkedin
+brand-x

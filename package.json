@@ -1,0 +1,17 @@
+{
+  "name": "@truspokeware/tsw-kit",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "No-build web component kit and design tokens for TruSpokeWare sites.",
+  "license": "MIT",
+  "exports": {
+    ".": "./index.js",
+    "./theme.css": "./theme.css",
+    "./components.css": "./components.css"
+  },
+  "scripts": {
+    "vendor:icons": "node scripts/vendor-icons.mjs",
+    "check": "node --check index.js && for f in components/*.js icons/icons.js; do node --check \"$f\" || exit 1; done"
+  }
+}
