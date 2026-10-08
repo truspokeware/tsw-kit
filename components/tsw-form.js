@@ -58,6 +58,10 @@ export class TswForm extends HTMLFormElement {
     this.#applyBranches();
   }
 
+  static markJsAvailable() {
+    document.documentElement.setAttribute('data-js', '');
+  }
+
   #applyBranches() {
     for (const fieldset of this.#branches) {
       const key = fieldset.getAttribute('data-tsw-branch');
@@ -71,7 +75,6 @@ export class TswForm extends HTMLFormElement {
 
       const matches = checked ? values.includes(checked.value) : false;
       fieldset.setAttribute('data-tsw-branch-active', String(matches));
-      fieldset.hidden = !matches;
 
       for (const control of fieldset.querySelectorAll(CONTROL)) {
         if (matches) {
@@ -246,3 +249,5 @@ export class TswForm extends HTMLFormElement {
 }
 
 customElements.define('tsw-form', TswForm, { extends: 'form' });
+
+if (document.documentElement.hasAttribute('data-js')) TswForm.markJsAvailable();

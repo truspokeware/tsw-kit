@@ -82,6 +82,17 @@ The form is a **customized built-in**, not an autonomous custom element:
 <form is="tsw-form" method="post" action="/api/intake">
 ```
 
+Put this in `<head>`, before any markup:
+
+```html
+<script>document.documentElement.setAttribute('data-js','')</script>
+```
+
+Branch visibility is then decided by CSS from first paint, not by JavaScript
+after load. Without the marker every branch fieldset stays visible, which is the
+no-JavaScript behaviour and the safe default. With it, inactive branches are
+hidden before the first frame, so nothing shifts while the page loads.
+
 An autonomous `<tsw-form>` is not a form. A `<button type="submit">` inside it
 submits nothing, and native constraint validation never runs. Extending
 `HTMLFormElement` keeps every native behaviour, so without JavaScript the form
